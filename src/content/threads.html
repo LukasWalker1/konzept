@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <style>
+        /* Globale Styles */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background:#2e2e30;
+        }
+
+        /* Header Styles */
+        header {
+            background: #2e2e30;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Suchleiste Styles */
+        .search-bar {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px 20px;
+            margin: 20px auto;
+            border: none;
+            border-radius: 15px;
+            background: #404042;
+            color: white;
+            font-size: 16px;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar::placeholder {
+            color: #ccc;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Thread-Liste Styles */
+        .thread-list {
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .thread {
+            margin: 0px auto 10px;
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            border: 1px solid #333;
+            background-color: #1E1E24;
+            border-radius: 5px;
+            color: whitesmoke;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Button zum Erstellen eines neuen Threads */
+        .new-thread-form {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 10px;
+            height: 40px;
+        }
+
+        .new-thread-input {
+            flex: 1;
+            padding: 10px;
+            height: inherit;
+            border: none;
+            border-radius: 5px 0px 0px 5px;
+            background-color: #1E1E24;
+            color: whitesmoke;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .new-thread-button {
+            flex: 0;
+            height: inherit;
+            background: #1E1E24;
+            border: none;
+            border-left: 1px solid rgb(24, 26, 34);
+            color: white;
+            border-radius: 0px 5px 5px 0px;
+            cursor: pointer;
+            padding: 10px 10px;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        input:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <input class="search-bar" type="text" placeholder="Search...">
+    </header>
+
+    <div class="thread-list">
+        <!-- Eingabeformular für einen neuen Thread -->
+        <form class="new-thread-form" action="/makethread" method="post">
+            <input class="new-thread-input" type="text" name="name" placeholder="Create a new thread...">
+            <button class="new-thread-button" type="submit">Create</button>
+        </form>
+{{
+args = globals()
+_put = '\n'.join([f'<div class="thread">{x}</div>' for x in args['threads']])
+}}
+    </div>
+</body>
+</html>

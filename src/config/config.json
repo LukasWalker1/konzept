@@ -1,0 +1,9 @@
+
+{
+    "ip": "localhost",
+    "port": 5000,
+    "queue_size": 10,
+	"SSL": false,
+	"cert_path" : "",
+	"key_path" : ""
+}
